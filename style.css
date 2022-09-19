@@ -1,7 +1,25 @@
 
+body {
+    background-image: url(MCG\ birds\ eye.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 80vh;
+    background-attachment: fixed;
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
 
 .gameboard {
-    margin: 0 auto;
+
+    margin: 50px auto;
     display: grid;  
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;

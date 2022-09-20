@@ -7,85 +7,95 @@ const spanTurn = document.querySelector('span')
 const restartBtn = document.querySelector('#restart')
 const div = document.querySelector('div')
 
-const player1 = 'Player X Won!'
-const player2 = 'Player O Won!'
+const playerXScore = 0
+const playerOScore = 0
 let player = 1;
 
-
-//iterate over each cell 
-// cells.forEach((cell) => {
-//     //when one of the cells are clicked, the below will run
-//     cell.addEventListener('click', (e) => {
-//         if (player === 1) {
-//             cell.innerHTML = 'X'
-//             spanTurn.textContent = "O's"
-//             player = 0;
-//         } else {
-//             cell.innerHTML = 'O'
-//             spanTurn.textContent = "X's"
-//             player = 1
-//         }
-//     })
-// })
-
-// const playerScore = []
-// const checkWinner = () => {
-//     cells.forEach((data) => {
-//         data.addEventListener('click', () => {
-//             console.log('clicked')
-//         })
-//     })
-// }
+const winningCombo = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6],
+    [0, 4, 8]
+]
 
 
-const playerX = []
-const playerO = []
+let playerX = []
+let playerO = []
+
+
 
 cells.forEach((cell) => {
-    //when one of the cells are clicked, the below will run
     cell.addEventListener('click', (e) => {
-        if(cell.innerHTML != "") return;
-        console.log(cell.dataset.cell)
-        if (player === 1) {
-            cell.innerHTML = 'X'
-            playerX.push(cell.dataset.cell)
-            spanTurn.textContent = "O's"
-            player = 0;
-        } else {
-            cell.innerHTML = 'O'
-            playerO.push(cell.dataset.cell)
-            spanTurn.textContent = "X's"
-            player = 1
-        }
+        const dataSet = parseInt(e.target.dataset.cell)
         
+        if(cell.innerHTML != "") return;
+    
+            if (player === 1) {
+                cell.innerHTML = 'X'
+                playerX.push(dataSet)
+                spanTurn.textContent = "O's"
+                player = 0;
+                winner(playerX)
+            } else {
+                cell.innerHTML = 'O'
+                playerO.push(dataSet)
+                spanTurn.textContent = "X's"
+                player = 1
+                winner(playerO)
+            }
+       
     })
     
 })
 
+//when reset button is clicked loop will set text content to an empty string
 
-//if cell 1 / 2/ 3 contain 'X' then player wins
+restartBtn.addEventListener('click', (e) => {  
+    //looping over every cell
+    for (let remove of cells) {
+        remove.textContent = ''
+    }
+    spanTurn.textContent = ''
+    player = 1
+})
 
-// const array = [
-//     [1, 2, 3],
-//     [4, 5, 6],
-//     [7, 8, 9],
-//     [1, 4, 7],
-//     [2, 5, 8],
-//     [3, 6, 9],
-//     [3, 5, 7],
-//     [1, 5, 9]
-// ]
 
-console.log(cells)
 
-    restartBtn.addEventListener('click', (e) => {
-        
-        for (let remove of cells) {
-            remove.textContent = ''
+const winner = (player) => {
+  // Pull out each array
+winningCombo.forEach((e) => {
+    
+  // Check if player markings include any of the winning combos. Assign the boolean result to var result.
+  let result = e.every(element => {
+    
+    return player.includes(element)
+  })
+  // If they do, check the result var and return out of the forEach loop as soon as it finds one match.
+  if (result === true) {
+    console.log('winner')
+    return;
+  } 
+  })
+}
+
+
+
+
+const checkForDraw = () => {
+    cells.forEach((e) => {
+        if (e.textContent !== "") {
+            return true
+            
         }
-        
     })
+}
+checkForDraw()
 
 
 
 
+       

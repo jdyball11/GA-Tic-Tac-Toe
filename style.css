@@ -1,19 +1,41 @@
 
 body {
-    background-image: url(MCG\ birds\ eye.jpeg);
+    background-image: url(images/MCG\ birds\ eye.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     height: 80vh;
     background-attachment: fixed;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
     
 }
 
-h1 {
+header {
+    grid-column: 2/3;
     text-align: center;
 }
 
+.sydney-logo {
+    grid-column: 1/2;
+}
+
+.sydney-logo img {
+    width: 150px;
+    float: right;
+}
+
+.geelong-logo {
+    grid-column: 3/4;
+    margin: 20px;
+}
+
+.geelong-logo img {
+    width: 110px;
+}
+
 .container {
+    grid-column: 2/3;
     text-align: center;
 }
 

@@ -54,6 +54,14 @@ header {
     width: 110px;
 }
 
+.sydney-score {
+    font-family: 'Exo 2', sans-serif;
+}
+
+.geelong-score {
+    font-family: 'Exo 2', sans-serif;
+}
+
 .container {
     grid-column: 2/3;
     text-align: center;
@@ -70,8 +78,8 @@ header {
 }
 
 .cell {
-    background-color: red;
-    border: 1px solid yellow;
+    background-color: transparent;
+    border: 3px solid red;
     min-height: 100px;
     min-width: 100px;
     display: flex;
@@ -80,22 +88,40 @@ header {
     font-size: 50px;
 }
 
+.cell:nth-child(-n + 3) {
+    border-top: none;
+} 
+
+.cell:nth-child(3n) {
+    border-right: none;
+}
+
+.cell:nth-child(3n - 2) {
+    border-left: none;
+} 
+
+.cell:nth-child(n + 7) {
+    border-bottom: none;
+}
+
 .pointer {
     pointer-events: none;
 }
 
-button {
-    display: inline-block;
-    outline: none;
-    font-size: 14px;
+
+
+#restart {
+    font-size: 18px;
     line-height: 1;
     border-radius: 500px;
-    padding: 16px 14px 18px;
+    padding: 15px 15px 18px;
     text-align: center;
     letter-spacing: 2px;
     font-weight: 700;
-    color: #fff;
-    background-color: #daa679;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+    width: 120px;
 }
 
 

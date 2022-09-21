@@ -9,6 +9,9 @@ const geelongSpan = document.querySelector('#geelong-score')
 const restartBtn = document.querySelector('#restart')
 const div = document.querySelector('div')
 const pointerRemove = document.querySelectorAll('.pointer')
+const clock = document.querySelector('.timer')
+console.log(clock)
+
 
 playerXStatus = false
 playerOStatus = false
@@ -29,7 +32,22 @@ const winningCombo = [
     [2, 4, 6],
     [0, 4, 8]
 ]
+let seconds = 5;   
+    const timer = setInterval(() => {
+        clock.textContent = `00:${seconds}`
+        if (seconds === 0) {
+            clearInterval(timer)
+            // killTime()
+        }
+        seconds--;
 
+    }, 1000)
+
+
+
+
+
+//when player selects cell and player equals
 
 const startGame = () => {
 
@@ -60,7 +78,7 @@ cells.forEach((cell) => {
             
     });     
     
-    
+    // countDown()
 })
 }
 startGame()
@@ -78,7 +96,7 @@ restartBtn.addEventListener('click', (e) => {
         remove.textContent = ''
         remove.classList.remove('pointer')
     }
-    spanScoreTurn.textContent = ''
+    spanScoreTurn.textContent = 'Player X Starts'
     playerX = []
     playerO = []
     player = 1
@@ -120,7 +138,7 @@ const checkForWinner = (playerWinner) => {
 const checkForDraw = () => {
     let count = playerX.length + playerO.length
     if (count === 9) {
-        console.log('tie')
+        spanScoreTurn.textContent = "It's a Draw!"
     }
     playerOStatus = true
     playerXStatus = true
@@ -146,3 +164,16 @@ const endGamePointer = () => {
 const grandFinalWinner = () => {
     
 }
+
+// const countDown = () => {
+//     let seconds = 60;
+//     timer = setInterval(() => {
+//         clock.textContent = `00:${seconds}`
+//         seconds--;
+//     }, 1000)
+    
+// }
+
+
+
+//switch between players at beginning of each qtr

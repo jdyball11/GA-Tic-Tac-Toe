@@ -46,16 +46,21 @@ let seconds = 5;
 
 
 
-
-//when player selects cell and player equals
+//event listener set for all cells
+//when player selects cell and player is 1 then the text content will set X in the box
+//then push each dataset (cell number) into playerX/O array
+//checkForWinner function runs
+//checkForDraw function runs
+//then player is set to 0 to switch turns
+//first if statement checks whether any boxes contain an empty string. if they dont then break out of condition.
 
 const startGame = () => {
 
 cells.forEach((cell) => {
     cell.addEventListener('click', (e) => {
         const dataSet = parseInt(e.target.dataset.cell)
-        console.log(playerO)
-        console.log(playerX)
+        // console.log(playerO)
+        // console.log(playerX)
         if(cell.innerHTML != "") return;
     
             if (player === 1) {
@@ -102,6 +107,14 @@ restartBtn.addEventListener('click', (e) => {
     player = 1
 })
 
+
+//forEach iterates over the winnngCombo array.
+//an every method then checks each individual sub array for the values where we compare the player choices which contain the datasets (cells selected in an array)
+//if any of the cells the player choose include one of the combinations in the winningcombo then true will be returned to the result varibale
+//if result is true and player is equal to 1 or 0 then this will decide a winner
+//player X/O will be displayed in the html
+//the score of eah player is incremented when they win
+//endgamepointer runs
 
 
 const checkForWinner = (playerWinner) => {

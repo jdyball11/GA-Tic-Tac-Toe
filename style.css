@@ -4,7 +4,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 80vh;
+    height: 100vh;
     background-attachment: fixed;
     display: grid;
     grid-template-columns: 30% 40% 30%;
@@ -13,13 +13,36 @@ body {
 
 .main-header {
     font-family: 'Bungee Spice', cursive;
-    font-size: 60px;
+    font-size: 80px;
     
 }
 
-h3 {
+.container {
+    grid-column: 2/3;
+    text-align: center; 
+}
+
+.quarter-heading {
+    font-size: 50px;
+    font-family: 'Bungee Spice', cursive;
+    color: darkred;
+}
+
+.quarter-button {
+    align-items: center;
+    text-align: center;
+    font-family: 'Gluten', cursive;
+    letter-spacing: 1px;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    background-color: rgba(213, 241, 214, 0.552);
+    cursor: pointer;
+} 
+
+#player-position {
     font-family: 'Exo 2', sans-serif;
-    color: rgba(202, 17, 17, 1);
+    color: rgb(13, 12, 12);
     font-size: 30px;
     font-weight: bold;
 }
@@ -28,12 +51,6 @@ header {
     grid-column: 2/3;
     text-align: center;
 }
-
-/* .hidden-header h1 {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    opacity: 0;
-} */
 
 .sydney-logo {
     grid-column: 1/2;
@@ -56,16 +73,46 @@ header {
 
 .sydney-score {
     font-family: 'Exo 2', sans-serif;
+    font-size: 25px;
 }
 
 .geelong-score {
     font-family: 'Exo 2', sans-serif;
+    font-size: 25px;
 }
 
-.container {
-    grid-column: 2/3;
+.popup {
+    display: none;
+    background: linear-gradient(rgba(255, 255, 255, 0.299), rgba(255, 255, 255, 0.36)), url("images/e41am4dH.jpeg");
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    z-index: 5;
+    max-width: 800px;
+    padding: 70px;
+    top: 40%;
+    left: 20%;
     text-align: center;
+    border-radius: 50px;
+    border: 10px solid rgb(228, 34, 34);
 }
+
+.popup h1 {
+    font-size: 50px;
+    font-family: 'Exo 2', sans-serif;
+    color: black;
+}
+
+.popup button {
+    font-size: 30px;
+    font-family: 'Gluten', cursive;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
 
 .gameboard {
 
@@ -74,18 +121,19 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     max-width: 300px;
-
 }
 
 .cell {
     background-color: transparent;
-    border: 3px solid red;
+    border: 3px solid rgb(252, 250, 250);
     min-height: 100px;
     min-width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 60px;
+    font-family: 'Gluten', cursive;
+    color: red;
 }
 
 .cell:nth-child(-n + 3) {
@@ -108,7 +156,10 @@ header {
     pointer-events: none;
 }
 
-
+.timer {
+    font-size: 30px;
+    font-family: 'Gluten', cursive;
+}
 
 #restart {
     font-size: 18px;
@@ -119,9 +170,10 @@ header {
     letter-spacing: 2px;
     font-weight: 700;
     color: black;
-    background-color: transparent;
+    background-color: rgba(213, 241, 214, 0.552);
     cursor: pointer;
     width: 120px;
+    font-family: 'Gluten', cursive;
 }
 
 

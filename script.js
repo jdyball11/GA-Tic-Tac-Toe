@@ -1,16 +1,24 @@
-//declare variable of elements we want to select in gamboard class
-//establish players to be displayed when won
 
 
 const cells = document.querySelectorAll('.cell')
-const spanScoreTurn = document.querySelector('#player-position')
+let spanScoreTurn = document.querySelector('#player-position')
 const swanSpan = document.querySelector('#swan-score')
 const geelongSpan = document.querySelector('#geelong-score')
 const restartBtn = document.querySelector('#restart')
 const div = document.querySelector('div')
 const pointerRemove = document.querySelectorAll('.pointer')
 const clock = document.querySelector('.timer')
-console.log(clock)
+const container = document.querySelector('.container')
+const qtrButton = document.querySelector('.quarter-button')
+const qtrHeading = document.querySelector('.quarter-heading')
+const popup = document.querySelector('.popup')
+const finalHeading = document.querySelector('.final')
+const restartGameBtn = document.querySelector('.start-over')
+console.log(restartGameBtn)
+
+let quarterbutton = 2
+let quarterHeading = 1
+let seconds = 10; 
 
 
 playerXStatus = false
@@ -32,17 +40,63 @@ const winningCombo = [
     [2, 4, 6],
     [0, 4, 8]
 ]
-let seconds = 5;   
-    const timer = setInterval(() => {
-        clock.textContent = `00:${seconds}`
-        if (seconds === 0) {
-            clearInterval(timer)
-            // killTime()
+
+
+
+// const buttonChange = () => {}
+
+    qtrButton.addEventListener('click', (e) => {
+        
+        quarterHeading++
+        quarterbutton++
+        // console.log(quarter)
+        seconds = 10
+        qtrHeading.textContent = `Quarter ${quarterHeading}`
+        for (let remove of cells) {
+            remove.textContent = ''
+            remove.classList.remove('pointer')
         }
+
+        // if (quarterHeading % 2 !== 0) {
+        //         console.log(`Sydney ${quarterHeading}`)
+        //         player = 1
+        //         spanScoreTurn.textContent = "Player O's Turn" 
+        //         player = 0
+        //         console.log(player)
+        //     } else {
+        //         console.log(`geelong ${quarterHeading}`)
+        //         player = 0
+        //         spanScoreTurn = "Player X's Turn"
+        //         player = 1
+        //         console.log(player)
+        //     }
+        
+        playerX = []
+        playerO = []
+        
+        resetTimer()
+        
+})
+
+const resetTimer = () => {
+     qtrButton.setAttribute('style', 'display: none') 
+        const timer = setInterval(() => {
+            clock.textContent = `00:${seconds}`
+                if (seconds === 0) {
+                    clearInterval(timer)
+                    // qtrButton.setAttribute('stlye', 'display: block')
+                    qtrButton.style.display = 'block'
+                    qtrButton.textContent = `Start Quarter ${quarterbutton}`
+                    spanScoreTurn.textContent = `End of Quarter ${quarterHeading}`
+                    endGamePointer()
+                    checkFinalWinner()
+                return
+        }           
+                    
         seconds--;
 
     }, 1000)
-
+}
 
 
 
@@ -54,13 +108,14 @@ let seconds = 5;
 //then player is set to 0 to switch turns
 //first if statement checks whether any boxes contain an empty string. if they dont then break out of condition.
 
-const startGame = () => {
-
+const gamePlay = () => {
+    resetTimer()
 cells.forEach((cell) => {
+    
     cell.addEventListener('click', (e) => {
         const dataSet = parseInt(e.target.dataset.cell)
-        // console.log(playerO)
-        // console.log(playerX)
+        
+        resetGame()
         if(cell.innerHTML != "") return;
     
             if (player === 1) {
@@ -70,7 +125,7 @@ cells.forEach((cell) => {
                 checkForWinner(playerX)
                 checkForDraw()
                 player = 0;
-                // console.log(playerX)
+                return
             } else {
                 cell.innerHTML = 'O'
                 playerO.push(dataSet)
@@ -78,16 +133,23 @@ cells.forEach((cell) => {
                 checkForWinner(playerO)
                 checkForDraw()
                 player = 1
+                return
                 
             }
             
     });     
-    
-    // countDown()
 })
 }
-startGame()
 
+gamePlay()
+
+// const beginGame = () => {
+//     cells.forEach((event) => {
+//         event.addEventListener('click', gamePlay)
+//     })
+// }
+
+// beginGame()
 
 
 //when reset button is clicked loop will set text content to an empty string
@@ -95,6 +157,7 @@ startGame()
 //players arrays are reset to an empty array
 //Player is returned to player 1 so X starts
 
+const resetGame = () => {
 restartBtn.addEventListener('click', (e) => {  
     //looping over every cell
     for (let remove of cells) {
@@ -104,8 +167,13 @@ restartBtn.addEventListener('click', (e) => {
     spanScoreTurn.textContent = 'Player X Starts'
     playerX = []
     playerO = []
-    player = 1
+    // player = 1
 })
+
+
+
+}
+
 
 
 //forEach iterates over the winnngCombo array.
@@ -160,11 +228,8 @@ const checkForDraw = () => {
 
 //increments team/player score
 const playerScores = (scoreO, scoreX) => {
-    if (scoreO) {
-        geelongSpan.textContent = scoreO
-    } else if (scoreX) {
-        swanSpan.textContent = scoreX
-    }
+    geelongSpan.textContent = scoreO
+    swanSpan.textContent = scoreX
 }
 
 //prevents players from clicking on cells after winner is called
@@ -174,19 +239,53 @@ const endGamePointer = () => {
     })     
 }
 
-const grandFinalWinner = () => {
+const checkFinalWinner = () => {
     
+    if (quarterHeading === 4) {
+        if (playerOScore > playerXScore) {
+            popup.style.display = 'block'
+            finalHeading.textContent = `Geelong won the Grand Final!`
+            restartGameButton()
+         } else if (playerOScore < playerXScore) {
+            console.log("Sydney Won the GF")
+            popup.style.display = 'block'
+            finalHeading.textContent = `Sydney won the Grand Final!`
+            restartGameButton()
+        } else {
+            popup.style.display = 'block'
+            finalHeading.textContent = `It's a Draw! Jesus! Play again`
+            restartGameButton()
+        }
+       
+}
 }
 
-// const countDown = () => {
-//     let seconds = 60;
-//     timer = setInterval(() => {
-//         clock.textContent = `00:${seconds}`
-//         seconds--;
-//     }, 1000)
-    
-// }
+// Update the page to tell the user the timer has finished
+// Prevent the user from clicking any more grids
+// Have a button that appears once the timer is finished, allowing the user to click through to the next quarter.
+// Have a variable that tracks the quarters
+// Consider changing the start player every round
 
 
 
-//switch between players at beginning of each qtr
+console.log(playerOScore)
+console.log(playerXScore)
+
+const restartGameButton = () => {
+    restartGameBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+        for (let remove of cells) {
+            remove.textContent = ''
+            remove.classList.remove('pointer')
+        }
+        quarterHeading = 1
+        quarterbutton = 2
+        seconds = 10
+        spanScoreTurn.textContent = 'Player X Starts'
+        qtrHeading.textContent = `Quarter ${quarterHeading}`
+        playerX = []
+        playerO = []
+        resetTimer()
+
+    })
+}

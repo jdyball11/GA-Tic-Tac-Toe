@@ -17,15 +17,19 @@
       href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gluten&display=swap"
+      rel="stylesheet"
+    />
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
     <header>
       <h1 class="main-header">Tic Tac Toe</h1>
     </header>
-    <div class="hidden-header">
-      <h1>Winner</h1>
-    </div>
+
     <div class="sydney-logo">
       <img
         src="images/sydney-swans-australian-football-league-geelong-football-club-melbourne-cricket-ground-brisbane-lions-png-favpng-Tt7JNfu6qY7nCPLk30MHSZZey-removebg-preview.png"
@@ -39,8 +43,19 @@
         Geelong Score: <span id="geelong-score">0</span>
       </p>
     </div>
+    <div class="popup">
+      <h1 class="final">Geelong won the Grand Final!</h1>
+      <button class="start-over">Restart Game</button>
+    </div>
 
     <div class="container">
+      <div class="quarters">
+        <h3 class="quarter-heading">Quarter 1</h3>
+        <button class="quarter-button"></button>
+      </div>
+      <div class="game-timer">
+        <div class="timer">00:00</div>
+      </div>
       <h3 class="player-turn">
         <span id="player-position">Player X Starts</span>
       </h3>
@@ -55,9 +70,6 @@
         <div class="cell" data-cell="6"></div>
         <div class="cell" data-cell="7"></div>
         <div class="cell" data-cell="8"></div>
-      </div>
-      <div class="game-timer">
-        <div class="timer">00:00</div>
       </div>
 
       <button id="restart">Reset</button>

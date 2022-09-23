@@ -14,7 +14,7 @@ const qtrHeading = document.querySelector('.quarter-heading')
 const popup = document.querySelector('.popup')
 const finalHeading = document.querySelector('.final')
 const restartGameBtn = document.querySelector('.start-over')
-console.log(restartGameBtn)
+
 
 let quarterbutton = 2
 let quarterHeading = 1
@@ -49,7 +49,6 @@ const winningCombo = [
         
         quarterHeading++
         quarterbutton++
-        // console.log(quarter)
         seconds = 60
         restartBtn.classList.remove('pointer')
         qtrHeading.textContent = `Quarter ${quarterHeading}`
@@ -59,19 +58,11 @@ const winningCombo = [
         }
 
         if (quarterHeading % 2 !== 0) {
-                // console.log(`Sydney ${quarterHeading}`)
                 player = 1
                 spanScoreTurn.textContent = "Sydney's Turn" 
-                
-                console.log(`Sydney ${player}`)
             } else {
-                // console.log(`geelong ${quarterHeading}`)
-                player = 0
                 spanScoreTurn.textContent = "Geelong's Turn"
-                
-                console.log(`Geelong ${player}`)
             }
-            console.log("qtrButton")
         
         playerX = []
         playerO = []
@@ -180,8 +171,6 @@ restartBtn.addEventListener('click', (e) => {
     playerO = []
     playerOStatus = false
     playerXStatus = false
-    console.log(playerOStatus)
-console.log(playerXStatus)
     // player = 1
     })
 
@@ -212,15 +201,12 @@ const checkForWinner = (playerWinner) => {
             spanScoreTurn.textContent = 'Sydney Scored!'
             playerXStatus = true
             playerXScore++
-            // playerXStatus = false
-            console.log(playerXStatus)
             endGamePointer()
            return
         } else if (player === 0){
             spanScoreTurn.textContent = 'Geelong Scored!'
             playerOStatus = true
             playerOScore++
-            console.log(playerOStatus)
             endGamePointer()
             return
         }
@@ -280,7 +266,6 @@ const checkFinalWinner = () => {
             finalHeading.textContent = `Geelong won the Grand Final!`
             restartGameButton()
          } else if (playerOScore < playerXScore) {
-            console.log("Sydney Won the GF")
             popup.style.display = 'block'
             finalHeading.textContent = `Sydney won the Grand Final!`
             restartGameButton()
@@ -294,15 +279,6 @@ const checkFinalWinner = () => {
 }
 
 
-
-
-
-// Consider changing the start player every round
-
-
-
-console.log(playerOScore)
-console.log(playerXScore)
 
 const restartGameButton = () => {
     restartGameBtn.addEventListener('click', () => {
@@ -322,8 +298,6 @@ const restartGameButton = () => {
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         playerX = []
         playerO = []
-        console.log(`geelong ${playerOScore}`)
-        console.log(`sydney ${playerXScore}`)
         resetTimer()
         playerScores(0, 0)
         

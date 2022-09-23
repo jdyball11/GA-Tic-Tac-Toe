@@ -28,7 +28,8 @@ let playerO = []
 let playerXScore = 0
 let playerOScore = 0
 let player = 1;
-
+console.log(playerOScore)
+console.log(playerXScore)
 
 const winningCombo = [
     [0, 1, 2],
@@ -51,6 +52,7 @@ const winningCombo = [
         quarterbutton++
         // console.log(quarter)
         seconds = 5
+        restartBtn.classList.remove('pointer')
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         for (let remove of cells) {
             remove.textContent = ''
@@ -91,6 +93,7 @@ const resetTimer = () => {
                     qtrButton.style.display = 'block'
                     qtrButton.textContent = `Start Quarter ${quarterbutton}`
                     spanScoreTurn.textContent = `End of Quarter ${quarterHeading}`
+                    restartBtn.classList.add('pointer')
                     endGamePointer()
                     checkFinalWinner()
                 return
@@ -239,6 +242,7 @@ const playerScores = (scoreO, scoreX) => {
 const endGamePointer = () => {
     cells.forEach((cell) => { 
         cell.classList.add('pointer')
+        
     })     
 }
 
@@ -281,15 +285,21 @@ const restartGameButton = () => {
             remove.textContent = ''
             remove.classList.remove('pointer')
         }
+        restartBtn.classList.remove('pointer')
         quarterHeading = 1
         quarterbutton = 2
-        seconds = 10
+        playerXScore = 0
+        playerOScore = 0
+        seconds = 5
         player = 1
         spanScoreTurn.textContent = 'Player X Starts'
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         playerX = []
         playerO = []
+        console.log(`geelong ${playerOScore}`)
+        console.log(`sydney ${playerXScore}`)
         resetTimer()
-
+        playerScores(0, 0)
+        
     })
 }

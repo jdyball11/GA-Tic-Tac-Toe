@@ -16,7 +16,6 @@ body {
 .main-header {
     font-family: 'Bungee Spice', cursive;
     font-size: 70px;
-    /* margin-top: 80px; */
     
 }
 
@@ -141,7 +140,7 @@ header {
 
 .gameboard {
 /* vh/vw / rem */
-    margin: 10vh auto;
+    margin: 7vh auto;
     display: grid;  
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -191,7 +190,7 @@ header {
     font-size: 18px;
     line-height: 1;
     border-radius: 500px;
-    padding: 15px 15px 18px;
+    padding: 15px 15px 10px;
     text-align: center;
     letter-spacing: 2px;
     font-weight: 700;
@@ -203,9 +202,171 @@ header {
     margin-bottom: 20px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (max-width: 850px) {
     
+    body {
+        background: linear-gradient(rgba(255, 255, 255, 0.286), rgba(255, 255, 255, 0.235)), url(images/MCG\ birds\ eye.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 100vh;
+        background-attachment: fixed;
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+        grid-template-rows: 20% 70% 10%;
+        
+        
+    }
 
+    .main-header {
+        /* align-content: center; */
+        font-family: 'Bungee Spice', cursive;
+        font-size: 3em;
+        margin-top: 10vh;
+    }
+    .sydney-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            grid-column: 1/2;
+        }
+        
+        .sydney-logo img {
+            width: 100px;
+            float: right;
+        }
+        
+        .geelong-logo {
+            display: flex;
+            flex-direction: column;
+            grid-column: 3/4;
+            margin: 10px;
+            
+        }
+        
+        .geelong-logo img {
+            width: 80px;
+            max-height: 170px;
+        }
+        
+        .sydney-score {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 13px;
+        }
+        
+        .geelong-score {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 13px;
+            margin-top: 23px;
+        }
+        
+        .quarter-heading {
+            font-size: 2em;
+            font-family: 'Bungee Spice', cursive;
+            color: darkred;
+        }
+        
+        .quarter-button {
+            align-items: center;
+            text-align: center;
+            font-family: 'Gluten', cursive;
+            letter-spacing: 1px;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 5px;
+            background-color: rgba(213, 241, 214, 0.552);
+            cursor: pointer;
+            width: 100px;
+        } 
+        
+        #player-position {
+            font-family: 'Exo 2', sans-serif;
+            color: rgb(13, 12, 12);
+            font-size: 15px;
+            font-weight: bold;
+        }
+        
+        .timer {
+            font-size: 10px;
+            font-family: 'Gluten', cursive;
+            margin-top: 15px;
+        }
+
+        .gameboard {
+            /* vh/vw / rem */
+                margin: 4vh auto;
+                display: grid;  
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                max-width: 300px;
+            }
+
+            .pop-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80vw;
+                
+            }
+            
+            .popup {
+                display: none;
+                justify-content: center;
+                background: linear-gradient(rgba(255, 255, 255, 0.299), rgba(255, 255, 255, 0.36)), url("images/e41am4dH.jpeg");
+                background-size: cover;
+                background-position: center center;
+                z-index: 5;
+                max-width: 100%;
+                padding: 20px;
+                text-align: center;
+                border-radius: 50px;
+                border: 10px solid rgb(228, 34, 34);
+            }
+            
+            .popup h1 {
+                font-size: 1em;
+                font-family: 'Exo 2', sans-serif;
+                color: black;
+            }
+
+            .popup button {
+                font-size: 0.4em;
+                font-family: 'Gluten', cursive;
+                padding: 5px;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+            
+            .cell {
+                background-color: transparent;
+                border: 3px solid rgb(252, 250, 250);
+                min-height: 6vh;
+                min-width: 6vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 60px;
+                font-family: 'Gluten', cursive;
+                color: red;
+            }
+
+            #restart {
+                font-size: 0.5em;
+                line-height: 1;
+                border-radius: 500px;
+                padding: 5px 5px 8px;
+                text-align: center;
+                letter-spacing: 2px;
+                font-weight: 700;
+                color: black;
+                background-color: rgba(213, 241, 214, 0.552);
+                cursor: pointer;
+                width: 100px;
+                font-family: 'Gluten', cursive;
+                margin-bottom: 20px;
+            }
 
 }               
 

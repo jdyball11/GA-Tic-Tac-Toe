@@ -18,7 +18,7 @@ console.log(restartGameBtn)
 
 let quarterbutton = 2
 let quarterHeading = 1
-let seconds = 10; 
+let seconds = 60; 
 
 
 playerXStatus = false
@@ -50,7 +50,7 @@ const winningCombo = [
         quarterHeading++
         quarterbutton++
         // console.log(quarter)
-        seconds = 10
+        seconds = 60
         restartBtn.classList.remove('pointer')
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         for (let remove of cells) {
@@ -170,7 +170,12 @@ restartBtn.addEventListener('click', (e) => {
         remove.textContent = ''
         remove.classList.remove('pointer')
     }
-    spanScoreTurn.textContent = 'Sydney Starts'
+    if (player === 1) {
+        spanScoreTurn.textContent = 'Sydney Starts'
+    } else if (player === 0) {
+        spanScoreTurn.textContent = 'Geelong Starts'
+    }
+    
     playerX = []
     playerO = []
     playerOStatus = false
@@ -311,9 +316,9 @@ const restartGameButton = () => {
         quarterbutton = 2
         playerXScore = 0
         playerOScore = 0
-        seconds = 10
+        seconds = 60
         player = 1
-        spanScoreTurn.textContent = 'Sydney Starts'
+        spanScoreTurn.textContent = 'Player X Starts'
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         playerX = []
         playerO = []

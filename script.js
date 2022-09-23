@@ -18,7 +18,7 @@ console.log(restartGameBtn)
 
 let quarterbutton = 2
 let quarterHeading = 1
-let seconds = 30; 
+let seconds = 10; 
 
 
 playerXStatus = false
@@ -28,8 +28,7 @@ let playerO = []
 let playerXScore = 0
 let playerOScore = 0
 let player = 1;
-console.log(playerOScore)
-console.log(playerXScore)
+
 
 const winningCombo = [
     [0, 1, 2],
@@ -51,7 +50,7 @@ const winningCombo = [
         quarterHeading++
         quarterbutton++
         // console.log(quarter)
-        seconds = 30
+        seconds = 10
         restartBtn.classList.remove('pointer')
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         for (let remove of cells) {
@@ -62,13 +61,13 @@ const winningCombo = [
         if (quarterHeading % 2 !== 0) {
                 // console.log(`Sydney ${quarterHeading}`)
                 player = 1
-                spanScoreTurn.textContent = "Player X's Turn" 
+                spanScoreTurn.textContent = "Sydney's Turn" 
                 
                 console.log(`Sydney ${player}`)
             } else {
                 // console.log(`geelong ${quarterHeading}`)
                 player = 0
-                spanScoreTurn.textContent = "Player O's Turn"
+                spanScoreTurn.textContent = "Geelong's Turn"
                 
                 console.log(`Geelong ${player}`)
             }
@@ -76,7 +75,8 @@ const winningCombo = [
         
         playerX = []
         playerO = []
-        
+        playerXStatus = false
+        playerOStatus = false
         resetTimer()
         
 })
@@ -127,7 +127,7 @@ cells.forEach((cell) => {
             if (player === 1) {
                 cell.innerHTML = 'X'
                 playerX.push(dataSet)
-                spanScoreTurn.textContent = "Player O's Turn"
+                spanScoreTurn.textContent = "Geelong's Turn"
                 checkForWinner(playerX)
                 checkForDraw()
                 player = 0;
@@ -135,7 +135,7 @@ cells.forEach((cell) => {
             } else {
                 cell.innerHTML = 'O'
                 playerO.push(dataSet)
-                spanScoreTurn.textContent = "Player X's Turn"
+                spanScoreTurn.textContent = "Sydney's Turn"
                 checkForWinner(playerO)
                 checkForDraw()
                 player = 1
@@ -170,13 +170,15 @@ restartBtn.addEventListener('click', (e) => {
         remove.textContent = ''
         remove.classList.remove('pointer')
     }
-    spanScoreTurn.textContent = 'Player X Starts'
+    spanScoreTurn.textContent = 'Sydney Starts'
     playerX = []
     playerO = []
+    playerOStatus = false
+    playerXStatus = false
+    console.log(playerOStatus)
+console.log(playerXStatus)
     // player = 1
-})
-
-
+    })
 
 }
 
@@ -203,16 +205,17 @@ const checkForWinner = (playerWinner) => {
     if (result === true) {
         if (player === 1) {
             spanScoreTurn.textContent = 'Sydney Scored!'
-            playerXStatus === true
+            playerXStatus = true
             playerXScore++
-            console.log(playerXScore)
+            // playerXStatus = false
+            console.log(playerXStatus)
             endGamePointer()
            return
         } else if (player === 0){
             spanScoreTurn.textContent = 'Geelong Scored!'
-            playerOStatus === true
+            playerOStatus = true
             playerOScore++
-            console.log(playerOScore)
+            console.log(playerOStatus)
             endGamePointer()
             return
         }
@@ -225,12 +228,26 @@ const checkForWinner = (playerWinner) => {
 const checkForDraw = () => {
     let count = playerX.length + playerO.length
     if (count === 9) {
-        spanScoreTurn.textContent = "It's a Draw!"
-    }
-    playerOStatus = true
-    playerXStatus = true
+        if (playerOStatus === true) {
 
-}
+            spanScoreTurn.textContent = "Geelong Scored!"
+
+        } else if (playerXStatus === true) {
+
+            spanScoreTurn.textContent = "Sydney Scored!"
+ 
+        } else {
+            spanScoreTurn.textContent = "It's a Draw!"
+        }
+    }
+    // else if (count === 9) {
+    //     spanScoreTurn.textContent = "It's a Draw!"
+    // }
+    // playerOStatus = true
+    // playerXStatus = true
+    }
+
+
 
 //increments team/player score
 const playerScores = (scoreO, scoreX) => {
@@ -238,13 +255,17 @@ const playerScores = (scoreO, scoreX) => {
     swanSpan.textContent = scoreX
 }
 
+
+
 //prevents players from clicking on cells after winner is called
 const endGamePointer = () => {
     cells.forEach((cell) => { 
         cell.classList.add('pointer')
-        
+            
     })     
 }
+
+
 
 const checkFinalWinner = () => {
     
@@ -290,9 +311,9 @@ const restartGameButton = () => {
         quarterbutton = 2
         playerXScore = 0
         playerOScore = 0
-        seconds = 30
+        seconds = 10
         player = 1
-        spanScoreTurn.textContent = 'Player X Starts'
+        spanScoreTurn.textContent = 'Sydney Starts'
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         playerX = []
         playerO = []

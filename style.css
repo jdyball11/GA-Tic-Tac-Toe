@@ -225,55 +225,61 @@ header {
         margin-top: 10vh;
     }
     .sydney-logo {
+            margin-right: 15px;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             grid-column: 1/2;
-        }
+    }
         
-        .sydney-logo img {
-            width: 100px;
+    .sydney-logo img {
+            width: 80px;
             float: right;
-        }
+    }
         
-        .geelong-logo {
+    .geelong-logo {
+            
+            margin-left: 15px;
             display: flex;
             flex-direction: column;
+            align-items: flex-end;
             grid-column: 3/4;
             margin: 10px;
+            max-width: 120px;
             
-        }
+    }
         
-        .geelong-logo img {
-            width: 80px;
-            max-height: 170px;
-        }
+    .geelong-logo img {
+            width: 70px;
+            max-height: 150px;
+    }
         
-        .sydney-score {
+    .sydney-score {
             font-family: 'Exo 2', sans-serif;
-            font-size: 13px;
-        }
+            font-size: 10px;
+    }
         
-        .geelong-score {
+    .geelong-score {
             font-family: 'Exo 2', sans-serif;
-            font-size: 13px;
-            margin-top: 23px;
-        }
+            font-size: 10px;
+            margin-top: 12px;
+    }
 
-        .container {
+    .container {
             grid-column: 2/3;
             grid-row: 2/3;
             text-align: center; 
             
-        }
+    }
         
-        .quarter-heading {
+    .quarter-heading {
+            margin-top: 5px;
             font-size: 2em;
             font-family: 'Bungee Spice', cursive;
             color: darkred;
-        }
+    }
         
-        .quarter-button {
+    .quarter-button {
             align-items: center;
             text-align: center;
             font-family: 'Gluten', cursive;
@@ -284,32 +290,32 @@ header {
             background-color: rgba(213, 241, 214, 0.552);
             cursor: pointer;
             width: 120px;
-        } 
+    } 
         
-        #player-position {
+    #player-position {
             font-family: 'Exo 2', sans-serif;
             color: rgb(13, 12, 12);
             font-size: 15px;
             font-weight: bold;
-        }
+    }
         
-        .timer {
+    .timer {
             font-size: 13px;
             font-family: 'Gluten', cursive;
             margin-top: 15px;
-        }
+    }
 
-        .gameboard {
+    .gameboard {
             /* vh/vw / rem */
             
-                margin: 4vh auto;
-                display: grid;  
-                grid-template-columns: 1fr 1fr 1fr;
-                grid-template-rows: 1fr 1fr 1fr;
-                max-width: 300px;
-            }
+            margin: 4vh auto;
+            display: grid;  
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            max-width: 300px;
+    }
 
-            .pop-container {
+    .pop-container {
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -350,7 +356,7 @@ header {
             
             .cell {
                 background-color: transparent;
-                border: 3px solid rgb(252, 250, 250);
+                border: 1.5px solid rgb(252, 250, 250);
                 min-height: 6vh;
                 min-width: 6vw;
                 display: flex;
@@ -362,10 +368,10 @@ header {
             }
 
             #restart {
-                font-size: 0.5em;
+                font-size: 0.6em;
                 line-height: 1;
                 border-radius: 500px;
-                padding: 5px 5px 8px;
+                padding: 8px;
                 text-align: center;
                 letter-spacing: 2px;
                 font-weight: 700;

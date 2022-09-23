@@ -18,7 +18,7 @@ console.log(restartGameBtn)
 
 let quarterbutton = 2
 let quarterHeading = 1
-let seconds = 5; 
+let seconds = 30; 
 
 
 playerXStatus = false
@@ -51,7 +51,7 @@ const winningCombo = [
         quarterHeading++
         quarterbutton++
         // console.log(quarter)
-        seconds = 5
+        seconds = 30
         restartBtn.classList.remove('pointer')
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         for (let remove of cells) {
@@ -290,7 +290,7 @@ const restartGameButton = () => {
         quarterbutton = 2
         playerXScore = 0
         playerOScore = 0
-        seconds = 5
+        seconds = 30
         player = 1
         spanScoreTurn.textContent = 'Player X Starts'
         qtrHeading.textContent = `Quarter ${quarterHeading}`

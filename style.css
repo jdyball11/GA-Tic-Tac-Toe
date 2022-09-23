@@ -8,22 +8,35 @@ body {
     background-attachment: fixed;
     display: grid;
     grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 20% 70% 10%;
+    
     
 }
 
 .main-header {
     font-family: 'Bungee Spice', cursive;
-    font-size: 80px;
+    font-size: 70px;
+    /* margin-top: 80px; */
     
 }
 
 .container {
     grid-column: 2/3;
+    grid-row: 2/3;
     text-align: center; 
+    
 }
 
+.quarters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
 .quarter-heading {
-    font-size: 50px;
+    font-size: 40px;
     font-family: 'Bungee Spice', cursive;
     color: darkred;
 }
@@ -35,26 +48,29 @@ body {
     letter-spacing: 1px;
     padding: 10px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 13px;
     background-color: rgba(213, 241, 214, 0.552);
     cursor: pointer;
+    width: 200px;
 } 
 
 #player-position {
     font-family: 'Exo 2', sans-serif;
     color: rgb(13, 12, 12);
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 header {
-    grid-column: 2/3;
+    grid-column: 1/4;
     text-align: center;
 }
 
 .sydney-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     grid-column: 1/2;
-    
 }
 
 .sydney-logo img {
@@ -63,35 +79,46 @@ header {
 }
 
 .geelong-logo {
+    display: flex;
+    flex-direction: column;
     grid-column: 3/4;
     margin: 20px;
+    
 }
 
 .geelong-logo img {
-    width: 110px;
+    width: 130px;
+    max-height: 170px;
 }
 
 .sydney-score {
     font-family: 'Exo 2', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .geelong-score {
     font-family: 'Exo 2', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
+    margin-top: 23px;
+}
+
+.pop-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 
 .popup {
     display: none;
+    justify-content: center;
     background: linear-gradient(rgba(255, 255, 255, 0.299), rgba(255, 255, 255, 0.36)), url("images/e41am4dH.jpeg");
     background-size: cover;
     background-position: center center;
-    position: absolute;
     z-index: 5;
-    max-width: 800px;
+    max-width: 100%;
     padding: 70px;
-    top: 40%;
-    left: 20%;
     text-align: center;
     border-radius: 50px;
     border: 10px solid rgb(228, 34, 34);
@@ -112,11 +139,9 @@ header {
     cursor: pointer;
 }
 
-
-
 .gameboard {
-
-    margin: 50px auto;
+/* vh/vw / rem */
+    margin: 10vh auto;
     display: grid;  
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -136,7 +161,7 @@ header {
     color: red;
 }
 
-.cell:nth-child(-n + 3) {
+.cell:nth-child(-n+3) {
     border-top: none;
 } 
 
@@ -144,21 +169,22 @@ header {
     border-right: none;
 }
 
-.cell:nth-child(3n - 2) {
-    border-left: none;
-} 
-
-.cell:nth-child(n + 7) {
+.cell:nth-child(n+7) {
     border-bottom: none;
 }
+
+.cell:nth-child(3n-2) {
+    border-left: none;
+} 
 
 .pointer {
     pointer-events: none;
 }
 
 .timer {
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Gluten', cursive;
+    margin-top: 15px;
 }
 
 #restart {
@@ -174,10 +200,14 @@ header {
     cursor: pointer;
     width: 120px;
     font-family: 'Gluten', cursive;
+    margin-bottom: 20px;
 }
 
+@media screen and (min-width: 1000px) {
+    
 
-                
+
+}               
 
 
 

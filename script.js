@@ -18,7 +18,7 @@ console.log(restartGameBtn)
 
 let quarterbutton = 2
 let quarterHeading = 1
-let seconds = 10; 
+let seconds = 5; 
 
 
 playerXStatus = false
@@ -50,26 +50,27 @@ const winningCombo = [
         quarterHeading++
         quarterbutton++
         // console.log(quarter)
-        seconds = 10
+        seconds = 5
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         for (let remove of cells) {
             remove.textContent = ''
             remove.classList.remove('pointer')
         }
 
-        // if (quarterHeading % 2 !== 0) {
-        //         console.log(`Sydney ${quarterHeading}`)
-        //         player = 1
-        //         spanScoreTurn.textContent = "Player O's Turn" 
-        //         player = 0
-        //         console.log(player)
-        //     } else {
-        //         console.log(`geelong ${quarterHeading}`)
-        //         player = 0
-        //         spanScoreTurn = "Player X's Turn"
-        //         player = 1
-        //         console.log(player)
-        //     }
+        if (quarterHeading % 2 !== 0) {
+                // console.log(`Sydney ${quarterHeading}`)
+                player = 1
+                spanScoreTurn.textContent = "Player X's Turn" 
+                
+                console.log(`Sydney ${player}`)
+            } else {
+                // console.log(`geelong ${quarterHeading}`)
+                player = 0
+                spanScoreTurn.textContent = "Player O's Turn"
+                
+                console.log(`Geelong ${player}`)
+            }
+            console.log("qtrButton")
         
         playerX = []
         playerO = []
@@ -77,6 +78,8 @@ const winningCombo = [
         resetTimer()
         
 })
+
+
 
 const resetTimer = () => {
      qtrButton.setAttribute('style', 'display: none') 
@@ -260,10 +263,10 @@ const checkFinalWinner = () => {
 }
 }
 
-// Update the page to tell the user the timer has finished
-// Prevent the user from clicking any more grids
-// Have a button that appears once the timer is finished, allowing the user to click through to the next quarter.
-// Have a variable that tracks the quarters
+
+
+
+
 // Consider changing the start player every round
 
 
@@ -281,6 +284,7 @@ const restartGameButton = () => {
         quarterHeading = 1
         quarterbutton = 2
         seconds = 10
+        player = 1
         spanScoreTurn.textContent = 'Player X Starts'
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         playerX = []

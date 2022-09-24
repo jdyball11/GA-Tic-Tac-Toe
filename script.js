@@ -15,10 +15,9 @@ const popup = document.querySelector('.popup')
 const finalHeading = document.querySelector('.final')
 const restartGameBtn = document.querySelector('.start-over')
 
-
 let quarterbutton = 2
 let quarterHeading = 1
-let seconds = 60; 
+let seconds = 15; 
 
 
 playerXStatus = false
@@ -46,10 +45,10 @@ const winningCombo = [
 // const buttonChange = () => {}
 
     qtrButton.addEventListener('click', (e) => {
-        
+        console.log(player)
         quarterHeading++
         quarterbutton++
-        seconds = 60
+        seconds = 15
         restartBtn.classList.remove('pointer')
         qtrHeading.textContent = `Quarter ${quarterHeading}`
         for (let remove of cells) {
@@ -60,6 +59,7 @@ const winningCombo = [
                 player = 1
                 spanScoreTurn.textContent = "Sydney's Turn" 
             } else {
+                player = 0
                 spanScoreTurn.textContent = "Geelong's Turn"
             }
         playerX = []
@@ -119,7 +119,7 @@ cells.forEach((cell) => {
                 spanScoreTurn.textContent = "Geelong's Turn"
                 checkForWinner(playerX)
                 checkForDraw()
-                player = 0;
+                player = 0
                 return
             } else {
                 cell.innerHTML = 'O'
@@ -170,7 +170,7 @@ restartBtn.addEventListener('click', (e) => {
     playerO = []
     playerOStatus = false
     playerXStatus = false
-    // player = 1
+  
     })
 
 }
@@ -238,11 +238,6 @@ const checkForDraw = () => {
             spanScoreTurn.textContent = "It's a Draw!"
         }
     }
-    // else if (count === 9) {
-    //     spanScoreTurn.textContent = "It's a Draw!"
-    // }
-    // playerOStatus = true
-    // playerXStatus = true
     }
 
 
@@ -299,7 +294,7 @@ const restartGameButton = () => {
         quarterbutton = 2
         playerXScore = 0
         playerOScore = 0
-        seconds = 60
+        seconds = 15
         player = 1
         spanScoreTurn.textContent = 'Player X Starts'
         qtrHeading.textContent = `Quarter ${quarterHeading}`

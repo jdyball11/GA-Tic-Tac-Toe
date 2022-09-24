@@ -56,20 +56,18 @@ const winningCombo = [
             remove.textContent = ''
             remove.classList.remove('pointer')
         }
-
         if (quarterHeading % 2 !== 0) {
                 player = 1
                 spanScoreTurn.textContent = "Sydney's Turn" 
             } else {
                 spanScoreTurn.textContent = "Geelong's Turn"
             }
-        
         playerX = []
         playerO = []
         playerXStatus = false
         playerOStatus = false
         resetTimer()
-        
+    
 })
 
 
@@ -156,9 +154,10 @@ gamePlay()
 
 const resetGame = () => {
 restartBtn.addEventListener('click', (e) => {  
-    //looping over every cell
+
     for (let remove of cells) {
         remove.textContent = ''
+        //Removing all pointer classes from cells
         remove.classList.remove('pointer')
     }
     if (player === 1) {
@@ -187,15 +186,16 @@ restartBtn.addEventListener('click', (e) => {
 //endgamepointer runs
 
 
+
+
+
 const checkForWinner = (playerWinner) => {
-    // Pull out each array
+  
   winningCombo.forEach((e) => {
-      
-    // Check if player markings include any of the winning combos. Assign the boolean result to var result.
+    
     let result = e.every(element => {
     return playerWinner.includes(element)
     })
-    // If they do, check the result var and return out of the forEach loop as soon as it finds one match.
     if (result === true) {
         if (player === 1) {
             spanScoreTurn.textContent = 'Sydney Scored!'
@@ -214,6 +214,13 @@ const checkForWinner = (playerWinner) => {
     })
     playerScores(playerOScore, playerXScore)
   }
+
+
+
+
+
+// Check if player markings include any of the winning combos. Assign the boolean result to var result.
+    // If they do, check the result var and return out of the forEach loop as soon as it finds one match.
 
 //if all cells are full, then a tie will be called
 const checkForDraw = () => {

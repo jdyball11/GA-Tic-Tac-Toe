@@ -46,6 +46,12 @@ This was the biggest challange for myself. I found many different ways to have a
 
 My initial approach was to remove all the text content within the cells (X's and O's) once a winner had been declared but this would not give the users enough time to see the winner as the board would reset immediately. I decided to use vanilla js and directly add an element to each cell on the board in the HTML once the game had ended. in my CSS, I added a pointer event: none, to target the class name when it was added to prevent users clicking any cell. Then when the player reset or moved to next quarter, this would be removed by targeting each cell and removing the class.
 
+![Getting Started](images/Screen%20Shot%202022-09-23%20at%2010.28.38%20pm.png)
+
+![Getting Started](images/Screen%20Shot%202022-09-23%20at%2010.29.31%20pm.png)
+
 ## Switching players between quarters
 
 I used a modulo operation to determine which player would begin each quarter. my initial code firstly had the players variable which determined whos turn it was hard coded in as if 1 is not equal to 0 then it's player 1s turn and then followed by player = 0 right after which was just resetting it back to 0 everytime. This was removed. I have now simply just left the player variable to equal 1 if the quarterheading is not equal to 0 then player = 1 and sydney start or if it does equal 1, Geelong simply start.
+
+![Getting Started](images/Screen%20Shot%202022-09-23%20at%2010.44.32%20pm.png)

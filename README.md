@@ -2,7 +2,7 @@
 
 A tribute to the AFL Grandfinal. Tic Tac Toe style
 
-To enter the MCG and play, click here ###
+To enter the MCG and play, click here https://jdyball11.github.io/GA-Tic-Tac-Toe/
 
 - photo at the front
 - photo with winner annoucement

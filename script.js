@@ -40,7 +40,7 @@ const winningCombo = [
     [0, 4, 8]
 ]
 
-
+//when qtr button appears, heading and button increase respetive to the qtr. new player will start and board is enabled.
 
 const buttonChange = () => {
 
@@ -72,14 +72,13 @@ const buttonChange = () => {
 }
 buttonChange()
 
-
+//when timer reaches 0, clearinterval to kill timer. end of quarter button appears and board is disabled 
 const resetTimer = () => {
      qtrButton.setAttribute('style', 'display: none') 
         const timer = setInterval(() => {
             clock.textContent = `00:${seconds}`
                 if (seconds === 0) {
                     clearInterval(timer)
-                    // qtrButton.setAttribute('stlye', 'display: block')
                     qtrButton.style.display = 'block'
                     qtrButton.textContent = `Start Quarter ${quarterbutton}`
                     spanScoreTurn.textContent = `End of Quarter ${quarterHeading}`
@@ -246,7 +245,7 @@ const endGamePointer = () => {
     })     
 }
 
-
+//checks in quarter is equal to 4. If true, will display respective and run restart game button
 const checkFinalWinner = () => {
     
     if (quarterHeading === 4) {
@@ -268,7 +267,7 @@ const checkFinalWinner = () => {
 }
 
 
-
+//resets all scores, quarters and the board
 const restartGameButton = () => {
     restartGameBtn.addEventListener('click', () => {
         popup.style.display = 'none';

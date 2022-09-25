@@ -4,9 +4,11 @@ A tribute to the AFL Grandfinal. Tic Tac Toe style
 
 To enter the MCG and play, click here https://jdyball11.github.io/GA-Tic-Tac-Toe/
 
-- photo at the front
-- photo with winner annoucement
-- responsiveness photo for mobile
+## Game Images
+
+![Getting Started](images/Screen%20Shot%202022-09-25%20at%203.27.32%20pm.png)
+![Getting Started](images/Screen%20Shot%202022-09-25%20at%203.20.07%20pm.png)
+![Getting Started](images/Screen%20Shot%202022-09-25%20at%203.23.20%20pm.png)
 
 # Wireframes & Approach
 
@@ -42,11 +44,15 @@ I further decided to break up the game into 4 quarters with a countdown timer vi
 
 This was the biggest challange for myself. I found many different ways to have approached this put understanding the functionaility was difficult. I wanted to avoid a long if conditional to avoid potential bugs. I decided on using an array which included nested elements with the winning board combinations. The hurdle was using the most effective loop and targeting the sub arrays and having these compare with the players board choices which were stored in an array. I attempted using nested for loops, but I was unable to accurately target elements within sub array. I persisted with a forEach method to target each sub array and an every method to iterate through the elements within those sub arrays. From here I compared the combinations with the players choice array and storing a boolean value in a variable if the player had a match with the includes method.
 
+###### Solution
+
 ![Getting Started](images/Screen%20Shot%202022-09-24%20at%2011.35.18%20am.png)
 
 ## Preventing players from clicking board after winner or draw.
 
 My initial approach was to remove all the text content within the cells (X's and O's) once a winner had been declared but this would not give the users enough time to see the winner as the board would reset immediately. I decided to use vanilla js and directly add a class to each cell on the board in the HTML once the game had ended. in my CSS, I added a pointer event: none, to target the class name when it was added to prevent users clicking any cell. Then when the player reset or moved to next quarter, this would be removed by targeting each cell and removing the class.
+
+###### Solution
 
 ![Getting Started](images/Screen%20Shot%202022-09-23%20at%2010.28.38%20pm.png)
 
@@ -56,15 +62,15 @@ My initial approach was to remove all the text content within the cells (X's and
 
 I used a modulo operation to determine which player would begin each quarter. My initial code firstly had the players variable which determined whos turn it was hard coded in as 'if 1 is not equal to 0 then it's player 1s turn' and then followed by player = 0 right after which was just resetting it back to 0 everytime. This was removed.
 
-## Problem code
+###### Problem
 
-![Getting Started](images/Screen%20Shot%202022-09-24%20at%2012.52.48%20pm.png)
+![Getting Started](images/Screen%20Shot%202022-09-25%20at%206.43.34%20pm.png)
 
 I have now simply just left the player variable to equal 1 if the quarterheading is not equal to 0 then player = 1 and sydney start or if it does equal 1, Geelong simply start.
 
-## Solution
+###### Solution
 
-![Getting Started](images/Screen%20Shot%202022-09-23%20at%2010.44.32%20pm.png)
+![Getting Started](images/Screen%20Shot%202022-09-24%20at%2012.52.48%20pm.png)
 
 # Unsolved Problems
 

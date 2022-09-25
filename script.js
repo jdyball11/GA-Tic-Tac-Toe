@@ -42,10 +42,10 @@ const winningCombo = [
 
 
 
-// const buttonChange = () => {}
+const buttonChange = () => {
 
     qtrButton.addEventListener('click', (e) => {
-        console.log(player)
+        
         quarterHeading++
         quarterbutton++
         seconds = 15
@@ -69,7 +69,8 @@ const winningCombo = [
         resetTimer()
     
 })
-
+}
+buttonChange()
 
 
 const resetTimer = () => {
@@ -138,14 +139,6 @@ cells.forEach((cell) => {
 
 gamePlay()
 
-// const beginGame = () => {
-//     cells.forEach((event) => {
-//         event.addEventListener('click', gamePlay)
-//     })
-// }
-
-// beginGame()
-
 
 //when reset button is clicked loop will set text content to an empty string
 //will reset text in cells and remove pointer class from all cells
@@ -186,9 +179,6 @@ restartBtn.addEventListener('click', (e) => {
 //endgamepointer runs
 
 
-
-
-
 const checkForWinner = (playerWinner) => {
   
   winningCombo.forEach((e) => {
@@ -214,8 +204,6 @@ const checkForWinner = (playerWinner) => {
     })
     playerScores(playerOScore, playerXScore)
   }
-
-
 
 
 
@@ -257,7 +245,6 @@ const endGamePointer = () => {
             
     })     
 }
-
 
 
 const checkFinalWinner = () => {

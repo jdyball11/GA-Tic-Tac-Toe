@@ -1,6 +1,6 @@
 
 body {
-    background: linear-gradient(rgba(255, 255, 255, 0.286), rgba(255, 255, 255, 0.235)), url(images/MCG\ birds\ eye.jpeg);
+    background: linear-gradient(rgba(255, 255, 255, 0.286), rgba(255, 255, 255, 0.235)), url(images/Foosball.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -205,7 +205,7 @@ header {
 @media screen and (max-width: 850px) {
     
     body {
-        background: linear-gradient(rgba(255, 255, 255, 0.286), rgba(255, 255, 255, 0.235)), url(images/MCG\ birds\ eye.jpeg);
+        background: linear-gradient(rgba(255, 255, 255, 0.286), rgba(255, 255, 255, 0.235)), url(images/Foosball.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
